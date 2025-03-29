@@ -3,8 +3,8 @@ import com.ibm.openpages.api.resource.IField;
 import com.ibm.openpages.api.resource.IStringField;
 import com.ibm.openpages.api.resource.IDateField;
 import com.ibm.openpages.api.resource.IIntegerField;
-import com.ibm.openpages.api.workflow.IWFOperationContext;
-import com.ibm.openpages.api.workflow.IWFCustomProperty;
+import com.ibm.openpages.api.workflow.actions.IWFOperationContext;
+import com.ibm.openpages.api.workflow.actions.IWFCustomProperty;
 import java.util.List;
 import java.util.Map;
 
