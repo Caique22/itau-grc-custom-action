@@ -28,14 +28,14 @@ public class TestCustomAction extends AbstractCustomAction {
         printAllFields(resource);
     }
 
-    private IResource getResourceFromContext() {
+    public IResource getResourceFromContext() {
         // This method needs to be implemented based on how the resource is accessible in the context.
         // Assuming that we get the resource directly from the context (you may need to adjust based on your scenario).
         // Placeholder for getting the resource, update it with your logic:
         return context.getResource();  // Update with actual logic to fetch the resource from context
     }
 
-    private void printAllFields(IResource resource) {
+    public void printAllFields(IResource resource) {
         // Get all fields for the given resource
         Map<String, IField> fields = resource.getFields();
 
