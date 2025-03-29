@@ -1,8 +1,8 @@
-import com.ibm.openpages.api.model.IResource;
-import com.ibm.openpages.api.model.IField;
-import com.ibm.openpages.api.model.IStringField;
-import com.ibm.openpages.api.model.IDateField;
-import com.ibm.openpages.api.model.IIntegerField;
+import com.ibm.openpages.api.resource.IResource;
+import com.ibm.openpages.api.resource.IField;
+import com.ibm.openpages.api.resource.IStringField;
+import com.ibm.openpages.api.resource.IDateField;
+import com.ibm.openpages.api.resource.IIntegerField;
 import com.ibm.openpages.api.workflow.IWFOperationContext;
 import com.ibm.openpages.api.workflow.IWFCustomProperty;
 import java.util.List;
