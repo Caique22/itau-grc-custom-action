@@ -4,6 +4,8 @@ import com.ibm.openpages.api.resource.IStringField;
 import com.ibm.openpages.api.resource.IDateField;
 import com.ibm.openpages.api.resource.IIntegerField;
 import com.ibm.openpages.api.workflow.actions.AbstractCustomAction;
+import com.ibm.openpages.api.workflow.actions.IWFCustomAction;
+import com.ibm.openpages.api.workflow.IWFFieldSetter;
 import com.ibm.openpages.api.workflow.actions.IWFOperationContext;
 import com.ibm.openpages.api.workflow.actions.IWFCustomProperty;
 import java.util.List;
@@ -37,10 +39,10 @@ public class TestCustomAction extends AbstractCustomAction {
 
     public void printAllFields(IResource resource) {
         // Get all fields for the given resource
-        Map<String, IField> fields = resource.getFields();
+        List<IWFFieldSetter> fields = resource.getFields();
 
         // Iterate over the fields and print their IDs and values
-        for (Map.Entry<String, IField> entry : fields.entrySet()) {
+        for (IWFFieldSetter entry : fields.entrySet()) {
             String fieldId = entry.getKey();  // The ID of the field
             IField field = entry.getValue();  // The field object itself
             
