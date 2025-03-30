@@ -26,18 +26,14 @@ public class TestCustomAction extends AbstractCustomAction {
     protected void process() throws Exception {
         System.out.println("Test Custom Action");
         // Adicionar lógica específica aqui
-        printFields();
-    }
-
-    @Override
-    public List<IWFFieldSetter> getFields() {
-        return fields;
-    }
-
-    public void printFields() {
-        System.out.println("Fields:");
-        for (IWFFieldSetter field : fields) {
+        List<IWFFieldSetter> inheritedFields = super.getFields();
+    
+        // Print fields
+        for (IWFFieldSetter field : inheritedFields) {
             System.out.println(field.toString());
         }
+    
     }
+
+
 }
