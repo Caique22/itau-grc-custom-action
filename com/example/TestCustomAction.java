@@ -9,55 +9,35 @@ import com.ibm.openpages.api.workflow.IWFFieldSetter;
 import com.ibm.openpages.api.workflow.actions.IWFOperationContext;
 import com.ibm.openpages.api.workflow.actions.IWFCustomProperty;
 import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class TestCustomAction extends AbstractCustomAction {
+
+    public List<IWFFieldSetter> fields;
 
     // Constructor
     public TestCustomAction(IWFOperationContext context, List<IWFCustomProperty> properties) {
         super(context, properties);
-        // Initialize the serviceFactory
+        this.fields = new ArrayList<>();
+        // Inicializar a lista de campos conforme necessário
     }
 
     @Override
     protected void process() throws Exception {
         System.out.println("Test Custom Action");
-
-        // Get the resource from the context (assuming context has access to a resource, e.g., a 'parent' resource)
-        IResource resource = getResourceFromContext(); // You may need to implement this method to fetch the resource
-        
-        // Retrieve and print all fields associated with the resource
-        printAllFields(resource);
+        // Adicionar lógica específica aqui
+        printFields();
     }
 
-    public IResource getResourceFromContext() {
-        // This method needs to be implemented based on how the resource is accessible in the context.
-        // Assuming that we get the resource directly from the context (you may need to adjust based on your scenario).
-        // Placeholder for getting the resource, update it with your logic:
-        return context.getResource();  // Update with actual logic to fetch the resource from context
+    @Override
+    public List<IWFFieldSetter> getFields() {
+        return fields;
     }
 
-    public void printAllFields(IResource resource) {
-        // Get all fields for the given resource
-        List<IWFFieldSetter> fields = resource.getFields();
-
-        // Iterate over the fields and print their IDs and values
-        for (IWFFieldSetter entry : fields.entrySet()) {
-            String fieldId = entry.getKey();  // The ID of the field
-            IField field = entry.getValue();  // The field object itself
-            
-            if (field instanceof IStringField) {
-                IStringField stringField = (IStringField) field;
-                System.out.println("String Field ID: " + fieldId + " - Value: " + stringField.getValue());
-            } else if (field instanceof IDateField) {
-                IDateField dateField = (IDateField) field;
-                System.out.println("Date Field ID: " + fieldId + " - Value: " + dateField.getValue());
-            } else if (field instanceof IIntegerField) {
-                IIntegerField integerField = (IIntegerField) field;
-                System.out.println("Integer Field ID: " + fieldId + " - Value: " + integerField.getValue());
-            } else {
-                System.out.println("Unknown Field Type for Field ID: " + fieldId);
-            }
+    public void printFields() {
+        System.out.println("Fields:");
+        for (IWFFieldSetter field : fields) {
+            System.out.println(field.toString());
         }
     }
 }
